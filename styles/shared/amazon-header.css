@@ -1,0 +1,117 @@
+.amazon-header {
+    color : white;
+    background-color: rgb(19, 25, 33);
+    padding-left: 15px;
+    padding-right: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+}
+
+.amazon-header-left-section {
+    width: 180px;
+}
+@media (max-width: 800px) {
+  .amazon-header-left-section {
+    width: unset;
+  }
+}
+.amazon-logo {
+    width: 100px;
+    height: 30px;
+}
+.amazon-mobile-logo {
+    display: none;
+}
+@media (max-width: 575px) {
+    .amazon-logo {
+        display: none;
+    }
+    .amazon-mobile-logo {
+        display: block;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.amazon-header-middle-section {
+    display: flex;
+    flex: 1;
+    max-width: 850px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.search-bar {
+    height: 35px;
+    width: 0;
+    font-size: 16px;
+    padding: 2px 20px;
+    flex: 1;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.search-btn {
+    height: 39px;
+    background-color: orange;
+    border: none;
+    width: 45px;
+    flex-shrink: 0;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.search-icon {
+    width: 30px;
+    height: 30px;
+}
+.amazon-header-right-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 180px;
+    flex-shrink: 0;
+}
+.RO-link {
+    color: white;
+}
+.return-text {
+    display: block;
+    font-size: 13px;
+}
+.order-text {
+    display: block;
+    font-size: 15px;
+    font-weight: 700px;
+}
+.cart-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.cart-icon {
+    height: 30px;
+}
+.cart-text {
+  font-size: 15px;
+  font-weight: 700;
+}
+.cart-quantity {
+  color: rgb(240, 150, 4);
+  font-size: 16px;
+  font-weight: 700;
+
+  position: absolute;
+  top: 1px;
+  left:13px;
+  
+  width: 26px;
+  text-align: center;
+}
+
