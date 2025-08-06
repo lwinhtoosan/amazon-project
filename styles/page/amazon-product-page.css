@@ -96,14 +96,13 @@
     align-items: center;
     margin-bottom: 5px;
 }
-.added-to-cart-img {
-    height: 15px;
-}
 .add-to-cart-btn {
-    background-color: rgb(255, 208, 0);
-    border: none;
     padding: 7px 10px;
     border-radius: 50px;
     width: 100%;
 }
+.added-to-cart-img {
+    height: 15px;
+}
+
 

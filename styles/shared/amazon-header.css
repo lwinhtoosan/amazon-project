@@ -126,5 +126,7 @@
   width: 26px;
   text-align: center;
 }
-
+.header-link {
+    color: white;
+}
 
