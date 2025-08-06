@@ -1,0 +1,109 @@
+.main {
+    margin-top: 60px;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+@media (max-width:2000px) {
+   .product-grid {
+    grid-template-columns: repeat(7, 1fr);
+   }
+}
+@media (max-width: 1600px) {
+    .product-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+@media (max-width:1300) {
+    .product-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+@media (max-width:1000px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width:800px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width:575px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width:450px) {
+    .product-grid {
+        grid-template-columns: repeat(1fr);
+ }   
+}
+.product-container {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding-top: 40px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.prduct-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+.product-name {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.product-rate-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.product-rating-star {
+    width: 100px;
+    margin-right: 5px;
+}
+.product-rating-point {
+    color: rgb(64, 172, 215);
+}
+.price-text {
+    font-weight: bold;
+    font-size: 18px;
+}
+.product-quantity-container {
+    margin-top: 5px;
+    margin-bottom: 18px;
+}
+.product-spacer {
+    flex: 1;
+}
+.added-to-cart {
+    opacity: 1;
+    color: green;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.added-to-cart-img {
+    height: 15px;
+}
+.add-to-cart-btn {
+    background-color: rgb(255, 208, 0);
+    border: none;
+    padding: 7px 10px;
+    border-radius: 50px;
+    width: 100%;
+}
+
