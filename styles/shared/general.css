@@ -7,6 +7,24 @@
 
 .button-primary {
     background-color: rgb(255, 208, 0);
-    border: none;
+    border: 1px solid rgb(255, 208, 0);
+}
+.button-primary:hover {
+    background-color: rgb(235, 192, 0);
+    border: 1px solid rgb(235, 192, 0);
+}
+.link-primary {
+    color: rgb(1, 124, 182);
+    cursor: pointer;
+}
+.link-primary:hover {
+  color: rgb(0, 174, 255);
+}
+.link-secondary {
+    color: rgb(229, 0, 0);
+    cursor: pointer;
+}
+.link-secondary:hover {
+    color: rgb(255, 1, 1);
 }
 
