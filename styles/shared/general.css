@@ -27,4 +27,15 @@
 .link-secondary:hover {
     color: rgb(255, 1, 1);
 }
+select {
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    background-color: rgb(238, 238, 238);
+    box-shadow:0 3px 4px rgb(212, 212, 212);
+    padding: 4px 5px;
+    cursor: pointer;
+}
+.select:focus {
+    outline: 2px solid rgb(255, 153, 0);
+}
 
