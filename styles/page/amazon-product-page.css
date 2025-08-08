@@ -89,12 +89,15 @@
     flex: 1;
 }
 .added-to-cart {
-    opacity: 1;
+    opacity: 0;
     color: green;
 
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+}
+.added-appear {
+    opacity: 1;
 }
 .add-to-cart-btn {
     padding: 7px 10px;
