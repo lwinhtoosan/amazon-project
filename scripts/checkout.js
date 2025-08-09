@@ -32,7 +32,7 @@ cart.forEach((cartItem) => {
                         <span class="delete-quantity-link link-secondary js-delete-link" data-product-id=${matchingProduct.id}>Delete</span>
                         </div>
                     </div>
-                    </div>
+
                     <div class="delivery-options">
                     <div class="delivery-option-title">Choose a delivery option</div>
                     <div class="delivery-option">
@@ -70,6 +70,7 @@ cart.forEach((cartItem) => {
                         </div>
                     </div>
                     </div>
+                    </div>
                 </div>`;
 })
 document.querySelector('.js-order-summary')
@@ -85,3 +86,5 @@ document.querySelectorAll('.js-delete-link')
         container.remove();
     })
   })
+
+  
