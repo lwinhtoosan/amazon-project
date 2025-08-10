@@ -54,7 +54,29 @@
     color: brown;
     font-weight: 700;
 }
+.update-quantity-link {
+    margin-left: 10px;
+}
 
+.quantity-value {
+    font-weight: 600;
+}
+.is-editing-quantity-value .quantity-value{
+    display: none;
+}
+.quantity-input {
+    width: 30px;
+    display: none;
+}
+.save-link {
+    display: none;
+}
+.is-editing-quantity .quantity-input {
+    display: initial;
+}
+.save-link-update .save-link {
+    display: initial;
+}
 
 .delivery-option-title {
     font-size: 18px;
