@@ -57,6 +57,9 @@
 .update-quantity-link {
     margin-left: 10px;
 }
+.is-editing-update-quantity-link .update-quantity-link {
+    display: none;
+}
 
 .quantity-value {
     font-weight: 600;
