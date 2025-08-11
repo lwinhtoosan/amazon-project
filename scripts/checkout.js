@@ -107,7 +107,6 @@ document.querySelectorAll('.js-update-quantity-link')
             container.classList.add('save-link-update')
             container.classList.add('is-editing-quantity-value')
             document.querySelector('.js-update-quantity-link').innerHTML = "";
-            console.log(container)
         })
     })
   
