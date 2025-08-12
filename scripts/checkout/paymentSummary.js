@@ -1,10 +1,11 @@
 import { getProduct } from "../../data/products.js";
 import { deliveryOptions, getDeliveryId } from "../../data/deliveryOption.js";
-import { cart } from "../../data/cart.js";
+import { cart, calculateCartQuantity } from "../../data/cart.js";
 import { formatCurrency } from "../utils/money.js";
 export function renderPaymentSummary() {
     let productPriceCent = 0;
     let deliveryPriceCent = 0;
+    const cartQuantity = calculateCartQuantity();
     cart.forEach((cartItem) => {
         const productId = cartItem.productId;
         const deliveryOptionId = cartItem.deliveryOptionId;
@@ -22,7 +23,7 @@ export function renderPaymentSummary() {
         `
         <div class="payment-summary-title">Payment Summery</div>
           <div class="payment-summary-row">
-            <div class="product-label">items ():</div>
+            <div class="product-label">items (${cartQuantity}):</div>
             <div class="product-cost">$${formatCurrency(productPriceCent)}</div>
           </div>
           <div class="payment-summary-row">

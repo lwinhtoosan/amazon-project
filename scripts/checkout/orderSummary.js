@@ -9,6 +9,7 @@ import { products, getProduct } from "../../data/products.js"
 import { formatCurrency } from "../utils/money.js"
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 import { deliveryOptions, getDeliveryId } from "../../data/deliveryOption.js";
+import { renderPaymentSummary } from './paymentSummary.js'
 
 export function renderOrderSummary() {
 let cartSummaryHTML = "";
@@ -119,6 +120,7 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
     );
     container.remove();
     updateCartQuantity();
+    renderPaymentSummary();
   });
 });
 
@@ -151,7 +153,7 @@ document.querySelectorAll(".js-save-link").forEach((link) => {
 
   //click save and update quantity
   link.addEventListener("click", () => {
-    handleQuantityInput(productId,container); 
+    handleQuantityInput(productId,container);
   });
 
   //press Enter and update quantity
@@ -170,6 +172,7 @@ const newQuantity = Number(container.querySelector(`.js-quantity-input-${product
       document.querySelector(`.js-quantity-value-${productId}`).innerHTML =
         newQuantity;
       updateCartQuantity();
+      renderPaymentSummary();
     } else {
       alert("Quantity must be positive and up to 20");
     }
@@ -185,6 +188,7 @@ document.querySelectorAll('.js-delivery-option-input')
     optionInput.addEventListener('click', () => {
       updateDeliveryOption(productId, deliveryOptionId)
       renderOrderSummary();
+      renderPaymentSummary();
     })
   })
 }
