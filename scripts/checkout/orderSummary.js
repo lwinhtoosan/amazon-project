@@ -9,11 +9,11 @@ import { products, getProduct } from "../../data/products.js"
 import { formatCurrency } from "../utils/money.js"
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 import { deliveryOptions, getDeliveryId } from "../../data/deliveryOption.js";
-import { renderPaymentSummary } from './paymentSummary.js'
+import { renderPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 
 export function renderOrderSummary() {
 let cartSummaryHTML = "";
-updateCartQuantity();
 cart.forEach((cartItem) => {
   const productId = cartItem.productId;
 
@@ -115,22 +115,20 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
     const productId = link.dataset.productId;
     removeQuantity(productId);
 
-    const container = document.querySelector(
-      `.js-cart-item-container-${productId}`
-    );
-    container.remove();
-    updateCartQuantity();
+    renderCheckoutHeader();
+    renderOrderSummary();
     renderPaymentSummary();
   });
 });
 
 //displaying total quantity at header
-function updateCartQuantity() {
-  const cartQuantity = calculateCartQuantity();
-  document.querySelector(
-    ".js-return-to-home-link"
-  ).innerHTML = `${cartQuantity} items`;
-}
+//we will use mvc above instead of 
+// function updateCartQuantity() {
+//   const cartQuantity = calculateCartQuantity();
+//   document.querySelector(
+//     ".js-return-to-home-link"
+//   ).innerHTML = `${cartQuantity} items`;
+// }
 
 document.querySelectorAll(".js-update-quantity-link").forEach((link) => {
   link.addEventListener("click", () => {
