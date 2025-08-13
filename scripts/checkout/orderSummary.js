@@ -1,14 +1,13 @@
 import {
   cart,
   removeQuantity,
-  calculateCartQuantity,
   updateQuantity,
   updateDeliveryOption
 } from "../../data/cart.js";
 import { products, getProduct } from "../../data/products.js"
 import { formatCurrency } from "../utils/money.js"
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
-import { deliveryOptions, getDeliveryId } from "../../data/deliveryOption.js";
+import {  getDeliveryId, calculateDeliveryOption, deliveryOptions } from "../../data/deliveryOption.js";
 import { renderPaymentSummary } from './paymentSummary.js';
 import { renderCheckoutHeader } from './checkoutHeader.js';
 
@@ -21,12 +20,8 @@ cart.forEach((cartItem) => {
   const deliveryOptionId = cartItem.deliveryOptionId;
   const deliveryOption = getDeliveryId(deliveryOptionId)
       
-  const today = dayjs();
-  const deliveryDate = today.add(
-    deliveryOption.deliveryDays,
-    'days'
-    )
-  const dateString = deliveryDate.format('dddd, MMMM D')
+  const dateString = calculateDeliveryOption(deliveryOption);
+  
 
   cartSummaryHTML += `<div class="cart-item-container js-cart-item-container-${
                         matchingProduct.id
@@ -73,14 +68,11 @@ cart.forEach((cartItem) => {
 
 function deliveryOptionsHTML(matchingProduct, cartItem) {
   let html = "";
-  deliveryOptions.forEach((deliveryOption) => {
-    const today = dayjs();
-    const deliveryDate = today.add(
-      deliveryOption.deliveryDays,
-      'days'
-    )
-    const dateString = deliveryDate.format('dddd, MMMM D')
-    const priceString = deliveryOption.priceCents === 0
+
+      deliveryOptions.forEach((deliveryOption) => {
+      let dateString = calculateDeliveryOption(deliveryOption);
+
+      const priceString = deliveryOption.priceCents === 0
                         ? "FREE"
                         : `$${formatCurrency(deliveryOption.priceCents)}-`
 
@@ -104,8 +96,10 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
                   </div>
                 </div>
             </div>`
-  })
-  return html;
+  
+  
+    })   
+    return html; 
 }
 
 document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
