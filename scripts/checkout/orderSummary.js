@@ -163,7 +163,7 @@ const newQuantity = Number(container.querySelector(`.js-quantity-input-${product
       updateQuantity(productId, newQuantity);
       document.querySelector(`.js-quantity-value-${productId}`).innerHTML =
         newQuantity;
-      updateCartQuantity();
+      renderCheckoutHeader();
       renderPaymentSummary();
     } else {
       alert("Quantity must be positive and up to 20");
