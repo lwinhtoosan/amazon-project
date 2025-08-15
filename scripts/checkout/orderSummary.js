@@ -22,6 +22,7 @@ cart.forEach((cartItem) => {
       
   const dateString = calculateDeliveryOption(deliveryOption);
   
+  
 
   cartSummaryHTML += `<div class="cart-item-container
                       js-cart-item-container
@@ -92,9 +93,9 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
                 ${isChecked ? "checked" : ''}
                 class="delivery-option-input 
                 js-delivery-option-input
-                js-delivery-option-input-${matchingProduct.id}-${deliveryOption.id}
-                data-product-id = "${matchingProduct.id}"
-                data-delivery-option-id = "${deliveryOption.id}"
+                js-delivery-option-input-${matchingProduct.id}-${deliveryOption.id}"
+                data-product-id = ${matchingProduct.id}
+                data-delivery-option-id = ${deliveryOption.id}
                 name="delivery-option-${matchingProduct.id}"
                 />
                 <div>
@@ -118,7 +119,6 @@ document.querySelectorAll(".js-delete-link").forEach((link) => {
   link.addEventListener("click", () => {
     const productId = link.dataset.productId;
     removeQuantity(productId);
-
     renderCheckoutHeader();
     renderOrderSummary();
     renderPaymentSummary();

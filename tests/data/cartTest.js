@@ -5,6 +5,8 @@ describe('test suite: add to cart test', () => {
         spyOn(localStorage, 'setItem');
     })
     it('exicting product', () => {
+        // document.querySelector('.test-order-summary').innerHTML = 
+        // `<select class='js-product-quantity-selector-e43638ce-6aa0-4b85-b27f-e1d07eb678c6'></select>`
         spyOn(localStorage, 'getItem').and.callFake( () => {
             return JSON.stringify(
                     [

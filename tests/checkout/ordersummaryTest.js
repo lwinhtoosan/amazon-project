@@ -1,6 +1,7 @@
 import { renderOrderSummary } from "../../scripts/checkout/orderSummary.js";
 import { loadFromStorage, cart, updateDeliveryOption } from "../../data/cart.js";
 import { renderPaymentSummary } from "../../scripts/checkout/paymentSummary.js";
+import { renderCheckoutHeader } from "../../scripts/checkout/checkoutHeader.js";
 
 describe('test suite: renderOrderSummary', () => {
     let productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
@@ -56,7 +57,8 @@ describe('test suite: renderOrderSummary', () => {
     });
 
     it('remove a product', () => {
-
+        renderCheckoutHeader();
+        renderPaymentSummary();
         document.querySelector(`.js-delete-link-${productId1}`).click();
         expect(document.querySelectorAll('.js-cart-item-container').length).toEqual(1);
         expect(document.querySelector(`.js-cart-item-container-${productId1}`)).toEqual(null);

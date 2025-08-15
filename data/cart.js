@@ -23,9 +23,8 @@ function saveToStorage() {
 
 export function addToCart(productId) {
   let matchingItem;
-  // let selectedQty = document.querySelector(
-  //     `.js-product-quantity-selector-${productId}`
-  //   ).value;
+    // let selectedQty = document.querySelector(
+    //   `.js-product-quantity-selector-${productId}`).value;
     cart.forEach((item) => {
       if (productId === item.productId) {
         matchingItem = item;
@@ -57,6 +56,7 @@ export function removeQuantity(productId) {
 
 
 export function calculateCartQuantity() {
+  loadFromStorage();
   let cartQuantity = 0;
   cart.forEach((cartItem) => {
     cartQuantity += cartItem.quantity
