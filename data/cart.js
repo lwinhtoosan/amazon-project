@@ -1,3 +1,5 @@
+import { isValidDeliveryOptionId } from "./deliveryOption.js";
+
 export let cart;
 export function loadFromStorage() {
     cart = JSON.parse(localStorage.getItem('cart')) || 
@@ -80,6 +82,13 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
       matchingItem = cartItem
     }
   })
+  if (!matchingItem) {
+    return;
+  };
+  if (!isValidDeliveryOptionId(deliveryOptionId)) {
+    return;
+  }
   matchingItem.deliveryOptionId = deliveryOptionId
   saveToStorage();
 }
+

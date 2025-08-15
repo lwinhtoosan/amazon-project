@@ -1,5 +1,5 @@
 import { renderOrderSummary } from "../../scripts/checkout/orderSummary.js";
-import { loadFromStorage, cart } from "../../data/cart.js";
+import { loadFromStorage, cart, updateDeliveryOption } from "../../data/cart.js";
 import { renderPaymentSummary } from "../../scripts/checkout/paymentSummary.js";
 
 describe('test suite: renderOrderSummary', () => {
@@ -9,6 +9,7 @@ describe('test suite: renderOrderSummary', () => {
     //Use beforeEach to run the same code before each test running
     //this method allow to share code for not no duplicate
     beforeEach( () => {
+        spyOn(localStorage, 'setItem');
         document.querySelector('.test-order-summary'). innerHTML = 
         `<div class="js-order-summary"></div>
          <div class="js-checkout-header"></div>
@@ -33,9 +34,9 @@ describe('test suite: renderOrderSummary', () => {
     })
 
     //For the code that run at the end of each test
-    // afterEach( () => {
-    //     document.querySelector('.test-order-summary'). innerHTML = "";
-    // })
+    afterEach( () => {
+        document.querySelector('.test-order-summary'). innerHTML = "";
+    })
 
     it('display the cart', () => {
 
@@ -80,6 +81,20 @@ describe('test suite: renderOrderSummary', () => {
             .toEqual('$14.98');
         expect(document.querySelector('.js-total-cost').innerHTML)
             .toEqual('$63.50');
+    });
+
+    it('update delivery option with not existing product id in the cart', () => {
+        updateDeliveryOption('does-not-exist','3');
+        expect(cart[0].productId).toEqual(productId1);
+        expect(cart.length).toEqual(2);
+        expect(localStorage.setItem).toHaveBeenCalledTimes(0);
+    });
+
+    it('update delivery option with not existing deliveryOptionId', () => {
+        updateDeliveryOption(productId2,'4');
+        expect(cart[0].productId).toEqual(productId1);
+        expect(cart.length).toEqual(2);
+        expect(localStorage.setItem).toHaveBeenCalledTimes(0);
     })
 })
 
