@@ -1,3 +1,5 @@
+import { formatCurrency } from "../scripts/utils/money.js";
+
 export function getProduct(productId) {
   let matchingProduct;
   products.forEach((product) => {
@@ -7,6 +9,31 @@ export function getProduct(productId) {
   })
   return matchingProduct;
 }
+
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(productData) {
+    this.id = productData.id;
+    this.image = productData.image;
+    this.name = productData.name;
+    this.rating = productData.rating
+    this.priceCents = productData.priceCents
+  };
+
+  getStarUrl() {
+  return `/images/ratings/rating-${this.rating.stars * 10}.png`
+  };
+
+  getPriceCents() {
+    return `$${formatCurrency(this.priceCents)}`
+  }
+};
+
 
 export const products = [
   {
@@ -687,4 +714,6 @@ export const products = [
     },
     priceCents: 789
   }
-];
+].map((productData) => {
+  return new Product(productData);
+});

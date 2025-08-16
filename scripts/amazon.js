@@ -15,15 +15,12 @@ products.forEach((product) => {
                         ${product.name}
                     </div>
                     <div class="product-rate-container">
-                        <img class="product-rating-star" src="/images/ratings/rating-${
-                          product.rating.stars * 10
-                        }.png">
+                        <img class="product-rating-star" src="${product.getStarUrl()}">
                         <div class="product-rating-point">${
                           product.rating.count
                         }</div>
                     </div>
-                    <div class="price-text">$${formatCurrency(product.priceCents
-                    )}</div>
+                    <div class="price-text">"${product.getPriceCents()}"</div>
                     <div class="product-quantity-container">
                         <select class="js-product-quantity-selector-${
                           product.id
