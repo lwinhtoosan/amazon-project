@@ -2,8 +2,14 @@ import { addToCart, loadFromStorage } from "./cart.js";
 import { isValidDeliveryOptionId } from "./deliveryOption.js";
 
 class Cart {
-    cartItems = undefined;
-    localStorageKey = undefined;
+    cartItems;
+    localStorageKey;
+
+    constructor(localStorageKey) {
+        this.localStorageKey = localStorageKey;
+        this.loadFromStorage();
+        
+    }
 
     loadFromStorage() {
     this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey)) || 
@@ -97,14 +103,8 @@ class Cart {
 
 
 
-let cart = new Cart();
-let cartBusiness = new Cart()
-
-cart.localStorageKey = 'cart-oop';
-cartBusiness.localStorageKey = 'cart-business';
-
-cart.loadFromStorage();
-cartBusiness.loadFromStorage();
+let cart = new Cart('cart-oop');
+let cartBusiness = new Cart('cart-business')
 
 console.log(cart);
 
